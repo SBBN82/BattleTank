@@ -4,6 +4,9 @@
 #include "Components/ActorComponent.h"
 #include "TankAimingComponent.generated.h"
 
+class UTankBarrel;
+class UTankTurret;
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BATTLETANKPROJECT_API UTankAimingComponent : public UActorComponent
 {
@@ -11,12 +14,14 @@ class BATTLETANKPROJECT_API UTankAimingComponent : public UActorComponent
 
 public:	
 	UTankAimingComponent();
-	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+	void SetBarrelReference(UTankBarrel* BarrelToSet);
+	void SetTurretReference(UTankTurret* TurretToSet);
 
 public:	
 	void AimAt(FVector, float);
 
 private:
-	UStaticMeshComponent* Barrel = nullptr;
+	UTankBarrel* Barrel = nullptr;
+	UTankTurret* Turret = nullptr;
 	void MoveBarrelTowards(FVector);
 };
