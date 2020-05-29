@@ -19,13 +19,17 @@ class BATTLETANKPROJECT_API ATank : public APawn
 private:
 	ATank();
 
-	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 4000.f;
-
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float LaunchSpeed = 4000.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float ReloadTimeInSeconds = 3.f;
+	
 	UTankBarrel* Barrel = nullptr;
+	double LastFireTime = 0;
 
 protected:
 	virtual void BeginPlay() override;
