@@ -1,3 +1,4 @@
+#include "Components/SceneComponent.h"
 #include "TankTurret.h"
 
 void UTankTurret::Rotate(float RelativeSpeed)
