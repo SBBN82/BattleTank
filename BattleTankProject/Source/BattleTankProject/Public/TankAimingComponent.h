@@ -25,6 +25,8 @@ public:
 
 	void AimAt(FVector);
 
+	EFiringState GetFiringState() const;
+
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
 	EFiringState FiringState = EFiringState::AIMING;
