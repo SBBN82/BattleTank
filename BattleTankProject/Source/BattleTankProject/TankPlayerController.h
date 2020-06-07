@@ -31,10 +31,16 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	float LineTraceRange = 1000000.f;
 
+	UFUNCTION()
+	void OnTankDeath();
+
+	void StratSpectatingOnly();
+
 	UTankAimingComponent* AimingComponent = nullptr;
 
 	void AimTowardsCrosshair();
 	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 	bool GetLookVectorHitLocation(FVector, FVector&) const;
+	virtual void SetPawn(APawn* InPawn) override;
 };
